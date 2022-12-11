@@ -18,7 +18,7 @@ class Route implements IRoute {
     }
 
     task(req : Request, res : Response) : void {
-        res.status(200).send('GETOU BARROU');
+        res.status(200).send('GET / OK');
     }
 }
 

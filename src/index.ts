@@ -7,7 +7,7 @@ dotenv.config();
 const app : express.Express = express();
 
 const root_route : RootRoute = new RootRoute('/','get'),
-customers_route : CustomersRoute = new CustomersRoute('/customers', 'get'),
+customers_route : CustomersRoute = new CustomersRoute('/customers/:custId?', 'get'),
 app_router : AppRouter = new AppRouter([root_route, customers_route]);
 
 app_router.setRoutes();

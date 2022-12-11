@@ -1,14 +1,10 @@
 import { IRoute } from "../interfaces/IRoute";
 import { Request, Response } from "express";
 
-class Route implements IRoute {
-    private path : string;
-    private method: string;
+abstract class Route implements IRoute {
+    protected path : string;
+    protected method: string;
     
-    constructor(path : string, method : string) {
-        this.path = path;
-        this.method = method;
-    }
     public get Path() {
         return this.path;
     }    
@@ -16,10 +12,20 @@ class Route implements IRoute {
     public get Method() {
         return this.method;
     }
+    task(req : Request, res : Response) : void {}
+}
+
+class RootRoute extends Route {
+
+    constructor(path : string, method : string) {
+        super();
+        this.path = path;
+        this.method = method;
+    }
 
     task(req : Request, res : Response) : void {
-        res.status(200).send('GET / OK');
+        res.status(200).send('FEZ GET OK');
     }
 }
 
-export default Route;
+export {RootRoute, Route};

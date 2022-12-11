@@ -1,5 +1,5 @@
 import { Router } from "express";
-import Route from "./Route";
+import { Route } from "./Route";
 import { IAppRoutes } from "../interfaces/IAppRouter";
 
 class AppRouter implements IAppRoutes{

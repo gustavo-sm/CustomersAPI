@@ -1,6 +1,6 @@
 import express from "express";
-import AppRouter  from "./routes/AppRouter.js";
-import {RootRoute} from "./routes/Route.js";
+import { AppRouter }  from "./routes/AppRouter.js";
+import { RootRoute } from "./routes/Route.js";
 import dotenv from "dotenv";
 
 dotenv.config();

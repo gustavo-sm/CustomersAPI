@@ -29,4 +29,4 @@ class AppRouter implements IAppRoutes{
 
 }
 
-export default AppRouter;
+export { AppRouter };

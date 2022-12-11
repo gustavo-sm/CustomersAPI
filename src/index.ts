@@ -14,5 +14,5 @@ app_router.setRoutes();
 app.use(app_router.AppRouter);
 
 app.listen(process.env.APP_PORT, ()=>{
-    console.log("APP working");
+    console.log(`APP working \nPORT: ${process.env.APP_PORT}`);
 });

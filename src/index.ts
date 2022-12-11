@@ -1,13 +1,14 @@
 import express from "express";
 import { AppRouter }  from "./routes/AppRouter.js";
-import { RootRoute } from "./routes/Route.js";
+import { RootRoute, CustomersRoute } from "./routes/Route.js";
 import dotenv from "dotenv";
 
 dotenv.config();
+const app : express.Express = express();
 
-const app : express.Express = express(),
-      root_route : RootRoute = new RootRoute('/','get'),
-      app_router : AppRouter = new AppRouter([root_route]);
+const root_route : RootRoute = new RootRoute('/','get'),
+customers_route : CustomersRoute = new CustomersRoute('/customers', 'get'),
+app_router : AppRouter = new AppRouter([root_route, customers_route]);
 
 app_router.setRoutes();
 

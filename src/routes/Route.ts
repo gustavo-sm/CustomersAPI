@@ -24,8 +24,21 @@ class RootRoute extends Route {
     }
 
     task(req : Request, res : Response) : void {
-        res.status(200).send('FEZ GET OK');
+        res.status(200).send('GET /');
     }
 }
 
-export {RootRoute, Route};
+class CustomersRoute extends Route {
+
+    constructor(path : string, method : string) {
+        super();
+        this.path = path;
+        this.method = method;
+    }
+
+    task(req : Request, res : Response) : void {
+        res.status(200).send('GET Customers');
+    }
+}
+
+export { Route, RootRoute, CustomersRoute };

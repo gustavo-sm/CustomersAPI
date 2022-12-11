@@ -1,5 +1,5 @@
 import express from "express";
-import { AppRouter }  from "./routes/AppRouter.js";
+import { AppRouter }  from "./routes/router/AppRouter.js";
 import { RootRoute, CustomersRoute } from "./routes/Route.js";
 import dotenv from "dotenv";
 

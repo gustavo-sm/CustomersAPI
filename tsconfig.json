@@ -4,7 +4,10 @@
         "noEmitOnError": true,
         "target": "ES6",
         "moduleResolution" : "Node",
-        "esModuleInterop" : true
+        "esModuleInterop" : true,
+        "forceConsistentCasingInFileNames": true,
+        "isolatedModules": true,
     },
-    "include": ["src/**/*"]
+    "include": ["src/**/*"],
+    "exclude": ["node_modules"]
 }

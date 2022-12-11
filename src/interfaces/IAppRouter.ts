@@ -1,4 +1,4 @@
 export interface IAppRoutes {
     setRoutes() : void;
-    routeExists() : boolean;
+    routeExists(path_check : string) : boolean;
 }

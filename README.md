@@ -10,6 +10,6 @@
 
 - Criar arquivo `.env` com variável `APP_PORT` para setar a porta na qual a API irá rodar
 - `npm install && npm install typescript -g`
-- `npm run localserver` (somente funcionará em desenvolvimento)
+- `npm run localserver` (utilizar apenas em ambiente de desenvolvimento)
 
 > Checar package.json para conhecer mais scripts npm disponíveis para esse projeto.

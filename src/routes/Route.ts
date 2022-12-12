@@ -1,44 +1,45 @@
-import { IRoute } from "../interfaces/IRoute";
+import { IRoute } from "./interfaces/IRoute";
 import { Request, Response } from "express";
 
-abstract class Route implements IRoute {
+/*abstract class Route implements IRoute {
     protected path : string;
-    protected method: string;
     
     public get Path() {
         return this.path;
     }    
     
-    public get Method() {
-        return this.method;
-    }
     task(req : Request, res : Response) : void {}
-}
+}*/
 
-class RootRoute extends Route {
+class RootRoute implements IRoute {
+    private _path;
 
-    constructor(path : string, method : string) {
-        super();
-        this.path = path;
-        this.method = method;
+    constructor(path : string) {
+        this._path = path;
     }
 
-    task(req : Request, res : Response) : void {
+    get path(): string {
+        return this._path;
+    }
+
+    public task(req : Request, res : Response) : void {
         res.status(200).send('GET /');
     }
 }
 
-class CustomersRoute extends Route {
-
-    constructor(path : string, method : string) {
-        super();
-        this.path = path;
-        this.method = method;
+class CustomersRoute implements IRoute {
+    private _path;
+    constructor(path : string) {
+        this._path = path;
     }
 
-    task(req : Request, res : Response) : void {
+    get path(): string {
+        return this._path;
+    }
+
+    public task(req : Request, res : Response) : void {
         res.status(200).send('GET Customers');
     }
 }
 
-export { Route, RootRoute, CustomersRoute };
+export { RootRoute, CustomersRoute };

@@ -1,12 +1,12 @@
 import { Router } from "express";
-import { Route } from "../Route";
-import { IAppRoutes } from "../../interfaces/IAppRouter";
+import { IRoute } from "../interfaces/IRoute";
+import { IAppRouter } from "../interfaces/IAppRouter";
 
-class AppRouter implements IAppRoutes{
+class AppRouter implements IAppRouter{
     private app_router : Router;
-    private routes : Route[];
+    private routes : IRoute[];
 
-    constructor(routes : Route[]){
+    constructor(routes : IRoute[]){
         this.app_router = Router();
         this.routes = routes;
     }
@@ -19,11 +19,10 @@ class AppRouter implements IAppRoutes{
         let routes_arr_length : number = this.routes.length;
 
         for(let i : number = 0; i<routes_arr_length; i++){
-            if(this.routeExists(this.routes[i].Path))
+            if(this.routeExists(this.routes[i].path))
                 continue;
 
-            if(this.routes[i].Method === 'get')
-                this.app_router.get(this.routes[i].Path, this.routes[i].task);
+            this.app_router.get(this.routes[i].path, this.routes[i].task);
         }
     }
     

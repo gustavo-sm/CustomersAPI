@@ -18,23 +18,9 @@ class AppRouter implements IAppRouter{
     public setRoutes() : void {
         let routes_arr_length : number = this.routes.length;
 
-        for(let i : number = 0; i<routes_arr_length; i++){
-            if(this.routeExists(this.routes[i].path))
-                continue;
-
+        for(let i : number = 0; i<routes_arr_length; i++){ 
             this.app_router.get(this.routes[i].path, this.routes[i].task);
         }
-    }
-    
-    public routeExists(path_check : string) : boolean{
-        let routes_arr_length : number = this.app_router.stack.length;
-
-        for(let i : number = 0; i<routes_arr_length; i++){
-            if(this.app_router.stack[i].route.path === path_check)
-                return true;
-        }
-
-        return false;
     }
 
 }

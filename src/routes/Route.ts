@@ -1,18 +1,8 @@
 import { IRoute } from "./interfaces/IRoute";
 import { Request, Response } from "express";
 
-/*abstract class Route implements IRoute {
-    protected path : string;
-    
-    public get Path() {
-        return this.path;
-    }    
-    
-    task(req : Request, res : Response) : void {}
-}*/
-
 class RootRoute implements IRoute {
-    private _path;
+    private _path : string;
 
     constructor(path : string) {
         this._path = path;

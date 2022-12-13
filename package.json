@@ -9,7 +9,6 @@
     "watch": "tsc -w",
     "start": "node dist/index.js",
     "localserver": "concurrently \"npm run watch\" \"supervisor dist/\""
-
   },
   "repository": {
     "type": "git",
@@ -36,7 +35,9 @@
   },
   "type": "module",
   "dependencies": {
+    "@types/mysql": "^2.15.21",
     "dotenv": "^16.0.3",
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "mysql": "^2.18.1"
   }
 }

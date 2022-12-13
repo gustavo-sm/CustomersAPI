@@ -7,5 +7,4 @@ export interface IDatabaseConnection <T> {
     connect() : void;
     query(query : string, conditions : string[]) : Array<object>
     close() : void;
-
 }

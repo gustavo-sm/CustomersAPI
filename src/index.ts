@@ -1,6 +1,7 @@
 import express from "express";
 import { AppRouter }  from "./routes/router/AppRouter.js";
-import { RootRoute, CustomersRoute } from "./routes/Route.js";
+import { RootRoute } from "./routes/RootRoute.js";
+import { CustomersRoute } from "./routes/CustomersRoute.js";
 import dotenv from "dotenv";
 
 dotenv.config();

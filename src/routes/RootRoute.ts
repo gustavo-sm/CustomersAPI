@@ -17,19 +17,6 @@ class RootRoute implements IRoute {
     }
 }
 
-class CustomersRoute implements IRoute {
-    private _path;
-    constructor(path : string) {
-        this._path = path;
-    }
 
-    get path(): string {
-        return this._path;
-    }
 
-    public task(req : Request, res : Response) : void {
-        res.status(200).send('GET Customers');
-    }
-}
-
-export { RootRoute, CustomersRoute };
+export { RootRoute };

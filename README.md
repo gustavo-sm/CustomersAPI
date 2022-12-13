@@ -4,7 +4,7 @@
 
 - Criar arquivo `.env` com variável `APP_PORT` para setar a porta na qual a API irá rodar
 - Buildar dockerfile utilizando: `docker build .`
-- `docker run -d -p $APP_PORT id_imagem`
+- `docker run -d -p <host_port>:<container_port> id_imagem`
 
 ### Executando diretamente
 

@@ -14,7 +14,7 @@ class CustomersRoute implements IRoute {
     }
 
     public task(req : Request, res : Response) : void {
-        const response : string = CustomersController.getCustomers();
+        const response : string = CustomersController.getCustomers(req.params.custId);
         res.status(200).send(response);
     }
 }

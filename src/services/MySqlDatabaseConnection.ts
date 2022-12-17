@@ -27,7 +27,7 @@ class MySqlDatabaseConnection implements IDatabaseConnection <mysql.Connection, 
             });
         }
         catch(err){
-            console.log(err);
+            throw new Error(err);
         }
 
     }

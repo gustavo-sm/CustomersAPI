@@ -1,7 +1,7 @@
+import { RowDataPacket } from "mysql2";
+import * as mysql  from "mysql2";
 import { IDatabaseConnection } from "./interfaces/IDatabaseConnection";
 
-import * as mysql from "mysql2";
-import { RowDataPacket } from "mysql2";  
 
 class MySqlDatabaseConnection implements IDatabaseConnection <mysql.Connection, RowDataPacket[]> {
     private _db_host : string;

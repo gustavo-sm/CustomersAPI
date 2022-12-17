@@ -1,9 +1,8 @@
-import { RowDataPacket } from "mysql2";
 import * as mysql  from "mysql2";
 import { IDatabaseConnection } from "./interfaces/IDatabaseConnection";
 
 
-class MySqlDatabaseConnection implements IDatabaseConnection <mysql.Connection, RowDataPacket[]> {
+class MySqlDatabaseConnection implements IDatabaseConnection <mysql.Connection, mysql.RowDataPacket[]> {
     private _db_host : string;
     private _db_name : string;
     private _db_username : string;
@@ -32,10 +31,10 @@ class MySqlDatabaseConnection implements IDatabaseConnection <mysql.Connection, 
 
     }
 
-    public async query(query : string, conditions : string[]) : Promise<RowDataPacket[]> {
+    public async query(query : string, conditions : string[]) : Promise<mysql.RowDataPacket[]> {
          
         return new Promise((resolve, reject) => {
-            this._db_connection.query<RowDataPacket[]>(query, (err, res) => {
+            this._db_connection.query<mysql.RowDataPacket[]>(query, (err, res) => {
               if (err) 
                 reject(err);
               else 

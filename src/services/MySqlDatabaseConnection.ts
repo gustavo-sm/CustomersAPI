@@ -53,9 +53,6 @@ class MySqlDatabaseConnection implements IDatabaseConnection <mysql.Connection, 
         this._db_connection.end();
     }
 
-    public get db_host(){
-        return;
-    }
 
     public get db_connection(){
         return this._db_connection;

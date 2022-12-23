@@ -1,5 +1,4 @@
-export interface IService <DatabaseT, ModelT>{
-    db_interface : DatabaseT;
+export interface IService <ModelT>{
     getAll(): Promise<ModelT[]>;
     getById(id: number): Promise<ModelT[]>;
 }

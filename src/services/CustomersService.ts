@@ -1,15 +1,21 @@
 import { Customers } from "../models/Customers.js";
+import { IDatabaseConnection } from "./interfaces/IDatabaseConnection.js";
 import { IService } from "./interfaces/IService";
 import { MySqlDatabaseConnection } from "./MySqlDatabaseConnection";
+import * as mysql  from "mysql2";
 
-class CustomersService implements IService <MySqlDatabaseConnection, Customers> {
-    db_interface : MySqlDatabaseConnection;
+import dotenv from 'dotenv';
+dotenv.config();
 
-    constructor(db_conn : MySqlDatabaseConnection){
-        this.db_interface = db_conn;
+class CustomersService implements IService <Customers> {
+    db_interface : IDatabaseConnection<mysql.Connection, mysql.RowDataPacket[]>
+
+    constructor(){
+        this.db_interface = new MySqlDatabaseConnection(process.env.DB_HOST, process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASSWORD);
     }
 
     public async getAll() : Promise<Customers[]> {
+        this.db_interface.connect();
         const cust_arr : Customers[] = [],
               results = await this.db_interface.query("SELECT * FROM 01custdata", []);
 
@@ -17,7 +23,7 @@ class CustomersService implements IService <MySqlDatabaseConnection, Customers> 
             let cust_inst : Customers = new Customers(results[i].cust_id,results[i].cust_name, results[i].cust_calc);
             cust_arr.push(cust_inst);
         }
-        
+        this.db_interface.close();
         return cust_arr;
     }
     public getById(cust_id : number) : Promise<Customers[]> {return;}

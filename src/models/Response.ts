@@ -1,25 +1,19 @@
-import { IResponse } from "./interfaces/IResponse";
-
-class Response implements IResponse {
-    private _message : string;
+class AppResponse {
+    private _data : Object;
     private _statusCode : number;
-    constructor() {
-        this._message = '';
-        this._statusCode = 0;
-    }
 
-    public get message() : string{
-        return this._message;
+    public get data() : Object{
+        return this._data;
     }
     public get statusCode() : number {
         return this._statusCode;
     }
     
-    createMessage(msg : string, code: number) : void {
-        this._message = msg;
+    createMessage(msg : Object, code: number) : void {
+        this._data = msg;
         this._statusCode = code;
     }
 
 }
 
-export { Response };
+export { AppResponse };

@@ -8,7 +8,6 @@
     "transpile": "tsc",
     "transpile:watch": "tsc -w",
     "start": "node dist/index.js",
-    "localserver": "concurrently \"npm run transpile:watch\" \"npm start dist/\"",
     "migration:create": "db-migrate create create-customers-table --config ./infra/database.cjs --migrations-dir ./infra/migrations --env=development"
   },
   "repository": {

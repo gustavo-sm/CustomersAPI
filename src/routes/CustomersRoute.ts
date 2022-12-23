@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { IRoute } from "./interfaces/IRoute";
 import { CustomersController } from "../controllers/CustomersController.js";
-
+import { AppResponse } from "../models/AppResponse";
 
 class CustomersRoute implements IRoute {
     private _path : string;
@@ -13,9 +13,9 @@ class CustomersRoute implements IRoute {
         return this._path;
     }
 
-    public task(req : Request, res : Response) : void {
-        const response : string = CustomersController.getCustomers(`${req.query.custName}`);
-        res.status(200).send(response);
+    public async task(req : Request, res : Response) : Promise<void> {
+        const resp : AppResponse = await CustomersController.getCustomers();
+        res.status(resp.statusCode).send(resp);
     }
 }
 

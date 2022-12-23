@@ -1,4 +1,7 @@
 ## CustomersAPI  
+> Em desenvolvimento: pesquisa por nome e metodos para insert  
+
+**Precisa de refatoração** :P
 
 ### Executando com Docker
 
@@ -16,5 +19,4 @@
 `transpile` : gera os arquivos `.js` finais no diretório dist  
 `transpile:watch` : a cada alteração detectada em arquivos .ts presentes no projeto, gera seus respectivos `.js`.  
 `start` : Executa o projeto em seu entrypoint -> `dist/index.js` (não detecta allterações automaticamente)  
-`localserver` : executa o `transpile:watch` e o `supervisor`, útil para utilizar durante o desenvolvimento, pois a cada alteração detectada, uma nova transpilação é efetuada e a execução da API se reinicia.
 

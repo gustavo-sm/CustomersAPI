@@ -1,6 +1,6 @@
-export interface IDatabaseConnection <TConnection, TPromise> {
-    db_connection : TConnection;
-    connect(db_host : string, db_name : string, db_username : string, db_password : string) : void;
-    query(query : string, conditions : string[]) : Promise<TPromise>;
+export interface IDatabaseConnection <ConnectionT, PromiseT> {
+    db_connection : ConnectionT;
+    connect() : void;
+    query(query : string, conditions : string[]) : Promise<PromiseT>;
     close() : void;
 }

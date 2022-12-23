@@ -9,20 +9,15 @@ class MySqlDatabaseConnection implements IDatabaseConnection <mysql.Connection, 
     private _db_password : string;
     private _db_connection : mysql.Connection;
 
-    constructor(){
-        this._db_host = '';
-        this._db_name = '';
-        this._db_username = '';
-        this._db_password = '';
+    constructor(db_host : string, db_name : string, db_username : string, db_password : string){
+        this._db_host = db_host;
+        this._db_name = db_name;
+        this._db_username = db_username;
+        this._db_password = db_password;
     }
 
-    public connect(db_host : string, db_name : string, db_username : string, db_password : string) : void {
+    public connect() : void {
         try{
-
-            this._db_host = db_host;
-            this._db_name = db_name;
-            this._db_username = db_username;
-            this._db_password = db_password;
             
             this._db_connection = mysql.createConnection({
                 host: this._db_host,

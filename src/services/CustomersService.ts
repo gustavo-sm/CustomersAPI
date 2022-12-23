@@ -1,7 +1,7 @@
 import { Customers } from "../models/Customers.js";
 import { IDatabaseConnection } from "./interfaces/IDatabaseConnection.js";
 import { IService } from "./interfaces/IService";
-import { MySqlDatabaseConnection } from "./MySqlDatabaseConnection";
+import { MySqlDatabaseConnection } from "./MySqlDatabaseConnection.js";
 import * as mysql  from "mysql2";
 
 import dotenv from 'dotenv';

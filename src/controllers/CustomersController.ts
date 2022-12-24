@@ -3,12 +3,13 @@ import { AppResponse } from "../models/AppResponse.js";
 import { Customers } from "../models/Customers.js";
 import { MySqlDatabaseConnection } from "../services/MySqlDatabaseConnection.js";
 import dotenv from 'dotenv';
+import { AppResponseData } from "../models/AppResponseData.js";
 
 dotenv.config();
 
 class CustomersController {
 
-    public static async getCustomer(cust_name : string) : Promise<AppResponse> {
+    public static async getCustomer(cust_name : string) : Promise< AppResponse > {
         const response : AppResponse = new AppResponse();
 
         try {
@@ -16,11 +17,12 @@ class CustomersController {
             result : Customers = await cust_service.getByName(cust_name);
             
             if(result.id === 0){
-                response.createMessage(`${cust_name} não encontrado :(`, 404);
+                response.createMessage(null, 404);
                 return response;
             }
 
-            response.createMessage(result, 200);
+            const test : AppResponseData = new AppResponseData(result);
+            response.createMessage(test, 200);
             return response;
 
         } catch (err){
@@ -30,7 +32,7 @@ class CustomersController {
         
     }
     
-    public static async getCustomers() : Promise<AppResponse> {
+    public static async getCustomers() : Promise< AppResponse > {
         const response : AppResponse = new AppResponse();
 
         try {
@@ -42,7 +44,8 @@ class CustomersController {
                 return response;
             }
             
-            response.createMessage(await cust_service.getAll(), 200);
+            const test : AppResponseData = new AppResponseData(results);
+            response.createMessage(test, 200);
             return response;
 
         } catch (err){

@@ -2,6 +2,8 @@ import { Request, Response } from "express";
 import { IRoute } from "./interfaces/IRoute";
 import { CustomersController } from "../controllers/CustomersController.js";
 import { AppResponse } from "../models/AppResponse";
+import { Customers } from "../models/Customers";
+import { AppResponseData } from "../models/AppResponseData";
 
 class CustomersRoute implements IRoute {
     private _path : string;
@@ -22,7 +24,7 @@ class CustomersRoute implements IRoute {
         else {
             resp = await CustomersController.getCustomers();
         }
-        res.status(resp.statusCode).send(resp);
+        res.status(resp.statusCode).send(resp.data);
         
         
     }

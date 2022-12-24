@@ -1,5 +1,7 @@
+import { AppResponseData } from "./AppResponseData";
+
 class AppResponse {
-    private _data : Object;
+    private _data : AppResponseData;
     private _statusCode : number;
 
     public get data() : Object{
@@ -9,7 +11,7 @@ class AppResponse {
         return this._statusCode;
     }
     
-    createMessage(msg : Object, code: number) : void {
+    createMessage(msg : AppResponseData, code: number) : void {
         this._data = msg;
         this._statusCode = code;
     }

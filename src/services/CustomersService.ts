@@ -16,6 +16,7 @@ class CustomersService implements IService <Customers> {
 
     public async getAll() : Promise<Customers[]> {
         this.db_interface.connect();
+
         const cust_arr : Customers[] = [],
               results = await this.db_interface.query("SELECT * FROM 01custdata", []);
 
@@ -23,6 +24,7 @@ class CustomersService implements IService <Customers> {
             let cust_inst : Customers = new Customers(results[i].cust_id,results[i].cust_name, results[i].cust_calc);
             cust_arr.push(cust_inst);
         }
+        
         this.db_interface.close();
         return cust_arr;
     }

@@ -1,17 +1,14 @@
 import { Customers } from "../models/Customers.js";
 import { IDatabaseConnection } from "./interfaces/IDatabaseConnection.js";
 import { IService } from "./interfaces/IService";
-import { MySqlDatabaseConnection } from "./MySqlDatabaseConnection.js";
 import * as mysql  from "mysql2";
 
-import dotenv from 'dotenv';
-dotenv.config();
-
 class CustomersService implements IService <Customers> {
-    private db_interface : IDatabaseConnection<mysql.Connection, mysql.RowDataPacket[]>
 
-    constructor(){
-        this.db_interface = new MySqlDatabaseConnection(process.env.DB_HOST, process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASSWORD);
+    private db_interface : IDatabaseConnection<mysql.Connection, mysql.RowDataPacket[]>;
+
+    constructor(db_interface : IDatabaseConnection<mysql.Connection, mysql.RowDataPacket[]>){
+        this.db_interface = db_interface;
     }
 
     public async getAll() : Promise<Customers[]> {

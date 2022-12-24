@@ -21,8 +21,8 @@ class CustomersController {
                 return response;
             }
 
-            const test : AppResponseData = new AppResponseData(result);
-            response.createMessage(test, 200);
+            const data : AppResponseData = new AppResponseData(result);
+            response.createMessage(data, 200);
             return response;
 
         } catch (err){
@@ -44,8 +44,8 @@ class CustomersController {
                 return response;
             }
             
-            const test : AppResponseData = new AppResponseData(results);
-            response.createMessage(test, 200);
+            const data : AppResponseData = new AppResponseData(results);
+            response.createMessage(data, 200);
             return response;
 
         } catch (err){

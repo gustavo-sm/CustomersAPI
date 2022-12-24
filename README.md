@@ -29,7 +29,7 @@ DB_NAME = Nome do bdd onde se encontra o schema de Customers.
 
 - Criar arquivo `.env` com variável `APP_PORT` para setar a porta na qual a API irá rodar
 - `npm install && npm install typescript -g`
-- `npm run localserver` (**utilizar apenas em ambiente de desenvolvimento**)
+- `npm start`
 
 #### Scripts registrados:
 `transpile` : gera os arquivos `.js` finais no diretório dist  

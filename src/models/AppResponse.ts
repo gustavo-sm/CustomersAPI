@@ -4,7 +4,7 @@ class AppResponse {
     private _data : AppResponseData;
     private _statusCode : number;
 
-    public get data() : Object{
+    public get data() : AppResponseData{
         return this._data;
     }
     public get statusCode() : number {

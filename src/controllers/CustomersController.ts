@@ -34,7 +34,7 @@ class CustomersController {
             const cust_service : CustomersService = new CustomersService(),
             results : Customers[] = await cust_service.getAll();
 
-            if(results.length > 0){
+            if(results.length === 0){
                 response.createMessage(null, 204);
                 return response;
             }

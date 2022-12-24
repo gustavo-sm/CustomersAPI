@@ -45,7 +45,7 @@ class CustomersService implements IService <Customers> {
                 return new Customers(0,'','');
             }
 
-            const cust_inst : Customers = new Customers(results[0].cust_id, results[0].cust_name, results[0].color_calc);
+            const cust_inst : Customers = new Customers(results[0].cust_id, results[0].cust_name, results[0].cust_calc);
 
             return cust_inst;
 

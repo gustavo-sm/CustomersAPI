@@ -1,5 +1,5 @@
 ## CustomersAPI  
-> Em desenvolvimento: pesquisa por nome e metodos para insert  
+> Em desenvolvimento: metodos para insert e migrations para facilitar subida de schema no banco de dados.
 
 **Precisa de refatoração** :P
 

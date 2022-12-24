@@ -1,10 +1,13 @@
 ## CustomersAPI  
-Em desenvolvimento:
+
+Próximas versões:
 - Testes automatizados
 - Paginação no GET
 - Metodo de insert/ update 
 - Migrations para facilitar subida de schema no banco de dados.
 - Criar docker-compose para subir container de BDD e aplicação (ambiente de desenvolvimento)
+- Sistema de logs
+
 
 **Precisa de refatoração** :P
 

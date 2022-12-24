@@ -1,5 +1,6 @@
 ## CustomersAPI  
-Em desenvolvimento:  
+Em desenvolvimento:
+- Testes automatizados
 - Paginação no GET
 - Metodo de insert/ update 
 - Migrations para facilitar subida de schema no banco de dados.

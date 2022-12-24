@@ -32,5 +32,5 @@ DB_NAME = Nome do bdd onde se encontra o schema de Customers.
 #### Scripts registrados:
 `transpile` : gera os arquivos `.js` finais no diretório dist  
 `transpile:watch` : a cada alteração detectada em arquivos .ts presentes no projeto, gera seus respectivos `.js`.  
-`start` : Executa o projeto em seu entrypoint -> `dist/index.js` (não detecta allterações automaticamente)  
+`start` : Transpila e executa o projeto em seu entrypoint -> `dist/index.js` (não detecta alterações automaticamente)  
 

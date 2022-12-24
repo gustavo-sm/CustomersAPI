@@ -8,7 +8,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 class CustomersService implements IService <Customers> {
-    db_interface : IDatabaseConnection<mysql.Connection, mysql.RowDataPacket[]>
+    private db_interface : IDatabaseConnection<mysql.Connection, mysql.RowDataPacket[]>
 
     constructor(){
         this.db_interface = new MySqlDatabaseConnection(process.env.DB_HOST, process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASSWORD);

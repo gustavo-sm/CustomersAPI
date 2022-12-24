@@ -1,5 +1,7 @@
 ## CustomersAPI  
-> Em desenvolvimento: metodos para insert e migrations para facilitar subida de schema no banco de dados.
+Em desenvolvimento:  
+- Metodo de insert/ update 
+- Migrations para facilitar subida de schema no banco de dados.
 
 **Precisa de refatoração** :P
 

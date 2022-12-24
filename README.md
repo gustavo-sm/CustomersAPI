@@ -4,6 +4,7 @@ Em desenvolvimento:
 - Paginação no GET
 - Metodo de insert/ update 
 - Migrations para facilitar subida de schema no banco de dados.
+- Criar docker-compose para subir container de BDD e aplicação (ambiente de desenvolvimento)
 
 **Precisa de refatoração** :P
 

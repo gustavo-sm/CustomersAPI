@@ -2,8 +2,6 @@ import { Request, Response } from "express";
 import { IRoute } from "./interfaces/IRoute";
 import { CustomersController } from "../controllers/CustomersController.js";
 import { AppResponse } from "../models/AppResponse";
-import { Customers } from "../models/Customers";
-import { AppResponseData } from "../models/AppResponseData";
 
 class CustomersRoute implements IRoute {
     private _path : string;

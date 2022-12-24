@@ -16,7 +16,7 @@ class AppRouter implements IAppRouter{
     }
     
     public setRoutes() : void {
-        let routes_arr_length : number = this.routes.length;
+        const routes_arr_length : number = this.routes.length;
 
         for(let i : number = 0; i<routes_arr_length; i++){ 
             this.app_router.get(this.routes[i].path, this.routes[i].task);

@@ -3,6 +3,18 @@
 
 **Precisa de refatoração** :P
 
+### Criação do .env
+```
+APP_PORT = Porta que o APP deverá escutar.
+ENVIRONMENT = Ambiente à ser configurado.
+DB_DRIVER = Nome do DBMS.
+DB_HOST = URL do host do bdd que será utilizado.
+DB_PORT = Porta do host do bdd que será utilizado.
+DB_USER = Usuário que será utilizado no bdd.
+DB_PASSWORD = Senha do usuário acima.
+DB_NAME = Nome do bdd onde se encontra o schema de Customers.
+```
+
 ### Executando com Docker
 
 - Criar arquivo `.env` com variável `APP_PORT` para setar a porta na qual a API irá rodar

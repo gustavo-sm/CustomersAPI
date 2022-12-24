@@ -26,7 +26,16 @@ class CustomersService implements IService <Customers> {
         this.db_interface.close();
         return cust_arr;
     }
-    public getById(cust_id : number) : Promise<Customers[]> {return;}
+
+    public async getByName(cust_name : string) : Promise<Customers> {
+        this.db_interface.connect();
+        
+        const results = await this.db_interface.query("SELECT * FROM 01custdata where cust_name = ?", [cust_name]),
+              cust_inst : Customers = new Customers(results[0].cust_id, results[0].cust_name, results[0].color_calc);
+
+        this.db_interface.close();
+
+        return cust_inst;}
     
 }
 

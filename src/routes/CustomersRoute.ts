@@ -14,8 +14,17 @@ class CustomersRoute implements IRoute {
     }
 
     public async task(req : Request, res : Response) : Promise<void> {
-        const resp : AppResponse = await CustomersController.getCustomers();
+        
+        let resp : AppResponse;
+        if(req.params.custName){
+            resp = await CustomersController.getCustomer(req.params.custName);
+        }
+        else {
+            resp = await CustomersController.getCustomers();
+        }
         res.status(resp.statusCode).send(resp);
+        
+        
     }
 }
 

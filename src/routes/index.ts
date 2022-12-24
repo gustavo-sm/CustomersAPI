@@ -6,7 +6,7 @@ import { CustomersRoute } from "./CustomersRoute.js";
 class IndexRoutes {
     public static groupRoutes(app : express.Express) : void {
         const root_route : RootRoute = new RootRoute('/'),
-              customers_route : CustomersRoute = new CustomersRoute('/customers/:custId?'),
+              customers_route : CustomersRoute = new CustomersRoute('/customers/:custName?'),
               app_router : AppRouter = new AppRouter([root_route, customers_route]);
 
         app_router.setRoutes();

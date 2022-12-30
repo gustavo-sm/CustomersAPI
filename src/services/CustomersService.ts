@@ -1,13 +1,13 @@
 import { Customers } from "../models/Customers.js";
 import { IDatabaseConnection } from "./interfaces/IDatabaseConnection.js";
 import { IService } from "./interfaces/IService";
-import * as mysql  from "mysql2";
+import { Connection, RowDataPacket } from "mysql2";
 
 class CustomersService implements IService <Customers> {
 
-    private db_interface : IDatabaseConnection<mysql.Connection, mysql.RowDataPacket[]>;
+    private db_interface : IDatabaseConnection<Connection, RowDataPacket[]>;
 
-    constructor(db_interface : IDatabaseConnection<mysql.Connection, mysql.RowDataPacket[]>){
+    constructor(db_interface : IDatabaseConnection<Connection, RowDataPacket[]>){
         this.db_interface = db_interface;
     }
 

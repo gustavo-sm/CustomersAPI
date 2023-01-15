@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import { IRoute } from "./interfaces/IRoute";
 import { CustomersController } from "../controllers/CustomersController.js";
 import { AppResponse } from "../models/AppResponse";
+import { Customers } from "../models/Customers";
 
 class CustomersRouteGET implements IRoute {
     private _path : string;
@@ -15,7 +16,7 @@ class CustomersRouteGET implements IRoute {
 
     public async task(req : Request, res : Response) : Promise<void> {
         
-        let resp : AppResponse;
+        let resp : AppResponse<Customers>;
         if(req.params.custName){
             resp = await CustomersController.getCustomer(req.params.custName);
         }
@@ -40,7 +41,7 @@ class CustomersRoutePOST implements IRoute {
 
     public async task(req : Request, res : Response) : Promise<void> {
         
-        const resp : AppResponse = await CustomersController.createCustomer();
+        const resp : AppResponse = await CustomersController.createCustomer(req.body.name, req.body.color_calc);
         res.status(resp.statusCode).send(resp.data);
 
     }

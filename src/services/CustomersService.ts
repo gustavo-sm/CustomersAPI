@@ -1,9 +1,9 @@
 import { Customers } from "../models/Customers.js";
 import { IDatabaseConnection } from "./interfaces/IDatabaseConnection.js";
-import { IService } from "./interfaces/IService";
+import { IServiceGET, IServicePOST } from "./interfaces/IService";
 import { Connection, RowDataPacket } from "mysql2";
 
-class CustomersService implements IService <Customers> {
+class CustomersServiceGET implements IServiceGET <Customers> {
 
     private db_interface : IDatabaseConnection<Connection, RowDataPacket[]>;
 
@@ -54,4 +54,18 @@ class CustomersService implements IService <Customers> {
     
 }
 
-export { CustomersService };
+class CustomersServicePOST implements IServicePOST <Customers>{
+    private db_interface : IDatabaseConnection<Connection, RowDataPacket[]>;
+
+    constructor(db_interface : IDatabaseConnection<Connection, RowDataPacket[]>){
+        this.db_interface = db_interface;
+    }
+    public async create(customer: Customers): Promise<Customers> {
+        this.db_interface.connect();
+        this.db_interface.query("INSERT INTO 01custdata VALUES(?)", [customer]);
+        return;
+    }
+
+}
+
+export { CustomersServiceGET, CustomersServicePOST };

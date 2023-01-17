@@ -3,14 +3,13 @@ import { AppResponse } from "../models/AppResponse.js";
 import { Customers } from "../models/Customers.js";
 import { MySqlDatabaseConnection } from "../services/MySqlDatabaseConnection.js";
 import dotenv from 'dotenv';
-import { AppResponseData } from "../models/AppResponseData.js";
 
 dotenv.config();
 
 class CustomersController {
 
-    public static async createCustomer() : Promise<AppResponse> {
-        const response : AppResponse = new AppResponse();
+    public static async createCustomer() : Promise< AppResponse<Customers> > {
+        const response : AppResponse<Customers> = new AppResponse();
         try{
             const cust_service : CustomersServiceGET = new CustomersServiceGET(new MySqlDatabaseConnection(process.env.DB_HOST, process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASSWORD));
             
@@ -22,8 +21,8 @@ class CustomersController {
         
     }
 
-    public static async getCustomer(cust_name : string) : Promise<AppResponse> {
-        const response : AppResponse = new AppResponse();
+    public static async getCustomer(cust_name : string) : Promise< AppResponse<Customers> > {
+        const response : AppResponse<Customers> = new AppResponse();
 
         try {
             const cust_service : CustomersServiceGET = new CustomersServiceGET(new MySqlDatabaseConnection(process.env.DB_HOST, process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASSWORD)),
@@ -34,8 +33,7 @@ class CustomersController {
                 return response;
             }
 
-            const data : AppResponseData = new AppResponseData(result);
-            response.createMessage(data, 200);
+            response.createMessage(result, 200);
             return response;
 
         } catch (err){
@@ -45,8 +43,8 @@ class CustomersController {
         
     }
     
-    public static async getCustomers() : Promise< AppResponse > {
-        const response : AppResponse = new AppResponse();
+    public static async getCustomers() : Promise< AppResponse<Customers[]> > {
+        const response : AppResponse<Customers[]> = new AppResponse();
 
         try {
             const cust_service : CustomersServiceGET = new CustomersServiceGET(new MySqlDatabaseConnection(process.env.DB_HOST, process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASSWORD)),
@@ -57,8 +55,7 @@ class CustomersController {
                 return response;
             }
             
-            const data : AppResponseData = new AppResponseData(results);
-            response.createMessage(data, 200);
+            response.createMessage(results, 200);
             return response;
 
         } catch (err){

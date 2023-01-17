@@ -16,7 +16,7 @@ class CustomersRouteGET implements IRoute {
 
     public async task(req : Request, res : Response) : Promise<void> {
         
-        let resp : AppResponse<Customers>;
+        let resp : AppResponse<Customers | Customers[]>;
         if(req.params.custName){
             resp = await CustomersController.getCustomer(req.params.custName);
         }
@@ -41,8 +41,8 @@ class CustomersRoutePOST implements IRoute {
 
     public async task(req : Request, res : Response) : Promise<void> {
         
-        const resp : AppResponse = await CustomersController.createCustomer(req.body.name, req.body.color_calc);
-        res.status(resp.statusCode).send(resp.data);
+        //const resp : AppResponse<Customers> = await CustomersController.createCustomer(req.body.name, req.body.color_calc);
+        res.status(200).send("okay");
 
     }
 }

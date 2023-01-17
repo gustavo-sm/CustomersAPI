@@ -62,7 +62,8 @@ class CustomersServicePOST implements IServicePOST <Customers>{
     }
     public async create(customer: Customers): Promise<Customers> {
         this.db_interface.connect();
-        this.db_interface.query("INSERT INTO 01custdata VALUES(?)", [customer]);
+        //this.db_interface.query("INSERT INTO 01custdata VALUES(?)", [customer]);
+        this.db_interface.close();
         return;
     }
 
